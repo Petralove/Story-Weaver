@@ -64,7 +64,7 @@ def text_to_speech(text, api_key):
     }
     try:
         response = requests.post(url, json=payload)
-        response.raise_s_status()
+        response.raise_for_status()
         result = response.json()
         
         audio_data_b64 = result['candidates'][0]['content']['parts'][0]['inlineData']['data']
